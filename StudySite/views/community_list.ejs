@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <% include ./layout %>
+    <script>
+
+    </script>
+    <head>
+    <body>
+
+    <% include ./sidevar %>
+    <div class="content">
+    <div class="">
+        <% if (communities) { %>
+            <a href="?">이름순</a>
+            <a href="?order=title_asc">역이름순</a>
+            <a href="?order=create_date">생성순</a> <br>
+            <% communities.forEach(community => { %>
+                <a href="community/<%= community.title_url %>"><%= community.title %></a> <br>
+            <% }); %>
+        <% } %>
+        <%= %>
+        <a href="/community/community_create">Go to Create New community</a>
+    </div>
+    </div>
+
+        <% if (listError.lenth > 0) { %>
+            <p>Error: <%= loginError %> </p>
+        <% } %>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <% include ./layout %>
+    <head>
+    <body>
+
+    <% include ./sidevar %>
+    <div class="content">
+        <p><%= community.user.nickname %> is manager</p>
+        <p><%= community.title %> is here</p>
+        <% if(posts) { %>
+            <div class="table_list">
+                <table>
+                    <th>
+                        <td>Title</td>
+                        <td>CratedAt</td>
+                    </th>
+                    <% posts.forEach(post => { %>
+                        <tr>
+                            <td></td>
+                            <td><a href="/post/<%= post.id %>"><%= post.title %></a></td>
+                            <td><%= post.createdAt %></td>
+                        </tr>
+                    <% });%>
+                </table>
+            </div>
+        <% } %>
+        <%= %>
+        <a href="/post/<%= community.title_url %>/write">글쓰기</a>
+        <% if ( user && user.id && community.user.id == user.id) { %>
+            <a href="/community/<%= community.title%>/setting">setting</a>
+        <% } %>
+        <%= %>
+    </div>
+    </body>
+    <script>
+    </script>
+</html>

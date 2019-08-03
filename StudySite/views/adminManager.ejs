@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <% include ./layout %>
+    <head>
+    <body>
+
+    <% include ./sidevar %>
+    <div class="content">
+        <table class="table_list">
+            <thead>
+                <tr>
+                    <th scope="cols">title</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% rooms.forEach(room => { %>
+                    <tr>
+                        <th scope="row"><a href="/customer/room/<%= room.id %>"><%= room.name %></a></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+
+    </script>
+
+    </body>
+</html>

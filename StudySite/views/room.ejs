@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <% include ./layout %>
+    <script src="/socket.io/socket.io.js"></script>
+    <head>
+    <body>
+
+    <% include ./sidevar %>
+    <div class="sidevar">
+        <a href="/">exit</a>
+    </div>
+    <div class="content">
+        <fieldset>
+            <legend><%= room.name %></legend>
+            <div id="chat-list">
+
+            </div>
+        </fieldset>
+        <form id="chat-form" method="POST" action="/customer/room/<%= room.id %>/chat">
+            chat<input type="text" name="chat">
+            <button type="submit">submit</button>
+        </form>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            var socket = io.connect('http://localhost:8001/chat', {
+                path: '/socket.io'
+            });
+
+            socket.on('join', function (data) {
+                var div = document.createElement('div');
+                div.classList.add('system');
+                var chat = document.createElement('div');
+                div.textContent = data.content;
+                div.appendChild(chat);
+                document.querySelector('#chat-list').appendChild(div);
+            });
+
+            socket.on('exit', function (data) {
+                var div = document.createElement('div');
+                div.classList.add('system');
+                var chat = document.createElement('div');
+                div.textContent = data.chat;
+                div.appendChild(chat);
+                document.querySelector('#chat-list').appendChild(div);
+            });
+
+            socket.on('chat', function (data) {
+                console.log(data);
+
+                var div = document.createElement('div');
+                <% if(user) { %>
+                    if (data.customer == 'Manager' && data.userId == <%= user.id %>) {
+                        div.classList.add('mine');
+                        div.style.color = '#e7708d';
+                    } else {
+                        div.classList.add('other');
+                        div.style.color = '#000000';
+                    }
+                <% } else { %>;
+                    if(data.customer && data.userId == null) {
+                        div.classList.add('mine');
+                        div.style.color = '#e7708d';
+                    } else {
+                        div.classList.add('other');
+                        div.style.color = '#000000';
+                    }
+                <% } %>
+                var name = document.createElement('div');
+                name.textContent = data.customer;
+                div.appendChild(name);
+                if (data.content) {
+                    var chat = document.createElement('div');
+                    chat.textContent = data.content;
+                    div.appendChild(chat);
+                }
+                document.querySelector('#chat-list').appendChild(div);
+            });
+
+            document.querySelector('#chat-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                if (e.target.chat.value) {
+                    var xhr = new XMLHttpRequest();
+                    xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        e.target.chat.value = '';
+                    } else {
+                        console.error(xhr.responseText);
+                    }
+                    };
+                    xhr.open('POST', '/customer/room/<%= room.id %>/chat');
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    xhr.send(JSON.stringify({ chat: this.chat.value }));
+                }
+            });
+        </script>
+    </div>
+    </body>
+</html>

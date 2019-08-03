@@ -1,0 +1,334 @@
+* {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .header {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .navbar {
+    overflow: hidden;
+    background-color: #333;
+  }
+
+  .navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  .navbar p {
+    float: right  ;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  .dropdown {
+    float: left;
+    overflow: hidden;
+  }
+
+  .dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  /* Style the side navigation */
+  .sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 46px;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+  }
+
+
+  /* Side navigation links */
+  .sidenav a {
+    color: white;
+    padding: 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  /* Change color on hover */
+  .sidenav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .sidevar {
+    height: 100%;
+    width: 10%;
+    top: auto;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+  }
+
+  .sidevar a {
+    color: white;
+    padding: 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .sidevar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  /* Style the content */
+  .content {
+    margin-top: 15px;
+    position: relative;
+    margin-left: 10%;
+    padding-left: 20px;
+  }
+
+.column {
+  float: left;
+  padding: 10px;
+}
+/* Left and right column */
+.column.side {
+  padding: 1%;
+  width: 15%;
+}
+
+.column.sideTwo {
+  width: 85%;
+}
+
+/* Middle column */
+.column.middle {
+  width: 50%;
+}
+
+/* same width of column */
+.column.same {
+  width: 33.3%;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+}
+
+@media screen and (max-width:600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+table.table_list {
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.5;
+  border: 1px solid #ccc;
+  margin: 20px 10px;
+}
+table.table_list thead {
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  background: #e7708d;
+}
+table.table_list thead th {
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  color: #fff;
+}
+table.table_list tbody th {
+  width: 150px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  background: #fcf1f4;
+}
+
+table.table_list tbody a {
+  width: 150px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  background: #fcf1f4;
+}
+
+table.table_list td {
+  width: 350px;
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+}
+
+/* https://www.w3schools.com/css/tryit.asp?filename=trycss_website_layout_blog */
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.programList.row {
+  margin: 8px -16px;
+}
+
+.programList.row, .programList.row > .programList.column {
+  padding: 8px;
+}
+
+.programList.column {
+  float: left;
+  width: 33.33%;
+}
+
+.programList.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.programList.content {
+  background-color: blanchedalmond;
+  padding: 10px;
+  border-style: dotted;
+  border-width: 2px;
+}
+
+.programList.content img {
+  width : 100%;
+  height : 100%;
+}
+
+.programList.content img:hover {
+  opacity : 0.7;
+}
+
+* { box-sizing: border-box; }
+.mine { text-align: right; }
+.system { text-align: center; }
+.mine img, .other img {
+    max-width: 300px;
+    display: inline-block;
+    border: 1px solid silver;
+    border-radius: 5px;
+    padding: 2px 5px;
+}
+.mine div:first-child, .other div:first-child { font-size: 12px; }
+.mine div:last-child, .other div:last-child {
+    display: inline-block;
+    border: 1px solid silver;
+    border-radius: 5px;
+    padding: 2px 5px;
+    max-width: 300px;
+}
+#exit-btn { position: absolute; top: 20px; right: 20px; }
+#chat-list { height: 500px; overflow: auto; padding: 5px; }
+#chat-form { text-align: right; }
+label[for='gif'], #chat, #chat-form [type='submit'] {
+    display: inline-block;
+    height: 30px;
+    vertical-align: top;
+}
+label[for='gif'] { cursor: pointer; padding: 5px; }
+#gif { display: none; }
+table, table th, table td {
+    text-align: center;
+    border: 1px solid silver;
+    border-collapse: collapse;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
+
+

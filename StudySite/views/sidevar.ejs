@@ -1,0 +1,44 @@
+<div class="header">
+    <h1>Hello NodeStudy</h1>
+    <p>Let's practice!</p>
+</div>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/post_list">최신글</a>
+        <a href="/community_list">커뮤니티</a>
+        <a href="/customer">customer</a>
+        <a href="/customer/adminManager">Admin</a>
+        <div class="dropdown">
+            <button class="dropbtn">Dropdown
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </div>
+        <a href="/program/list">강의</a>
+        <% if(user && user.id) { %>
+        <div class="dropdown" style="float:right">
+            <button class="dropbtn" ><%= user.nickname %>
+            <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+            <a href="/auth/logout">Logout</a>
+            <a href="/profile/<%= user.id %>">내정보</a>
+            </div>
+        </div>
+        <% } else { %>
+            <div class="dropdown" style="float:right">
+            <button class="dropbtn">Human
+            <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+            <a href="/join">회원가입</a>
+            <a href="/login">Login</a>
+            </div>
+        </div>
+        <% } %>
+        <%= %>
+    </div>

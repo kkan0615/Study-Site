@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <% include ./layout %>
+    <head>
+    <body>
+
+    <% include ./sidevar %>
+    <div class="content">
+        <form method="POST">
+            <fieldset>
+                <legend>1 to 1 talk</legend>
+                Quesiton <input type="text" name="name" value="name">
+                <button type="submit">submit</button>
+            </fieldset>
+        </form>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    </body>
+</html>

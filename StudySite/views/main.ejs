@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <% include ./layout %>
+    <script>
+
+    </script>
+    <head>
+    <body>
+
+    <% include ./sidevar %>
+
+    <div class="content">
+        <% if (user) { %>
+            <p>Hello <%= user.nickname %></p>
+            <p>You are <%= user.isAdmin %></p>
+        <% } else { %>
+            <p>Hello this website</p>
+        <% } %>
+    </div>
+
+
+        <% if (loginError.lenth > 0) { %>
+            <p>Error: <%= loginError %> </p>
+        <% } %>
+    </body>
+</html>

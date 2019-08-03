@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <% include ./layout %>
+    <head>
+    <body>
+    <% include ./sidevar %>
+
+    <div class="sidevar">
+
+    </div>
+
+    <div class="content">
+        <table class="table_list">
+            <a href="?">시간순 </a>
+            <a href="?order=title_asc">역이름순 </a>
+            <a href="?order=title_DESC">이름순 </a> <br>
+            <thead>
+                <tr>
+                    <th scope="cols">title</th>
+                    <th scope="cols">author</th>
+                    <th scope="cols">timestamp</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% list.forEach(post => { %>
+                    <tr>
+                        <th scope="row"><a href="/post/<%= post.id %>"><%= post.title %></a></td>
+                        <td><%= post.author.nickname %></td>
+                        <td><%= post.createdAt %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+    </body>
+</html>

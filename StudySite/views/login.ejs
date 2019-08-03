@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <% include ./layout %>
+    <head>
+    <body>
+        <% include ./sidevar %>
+        <div class="content">
+            <% if ( loginError.length > 0 ) { %>
+                <strong>Message: <%= loginError %></strong>
+            <% } %>
+        <form method="POST" action="/auth/login">
+            Email <input type="email" name="email"><br>
+            Password <input type="password" name="password"><br>
+            <button type="submit">submit</button>
+        </form>
+        <a href="/auth/google">Google</a>
+        </div>
+    </body>
+</html>

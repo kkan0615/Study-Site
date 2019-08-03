@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <% include ./layout %>
+    <script>
+
+    </script>
+    </head>
+    <body>
+
+    <% include ./sidevar %>
+        <div class="sidevar">
+        <a href="/">main</a>
+        <a href="/join">회원가입</a>
+        <a href="/post_list">최신글 보기</a>
+        <a href="/community_list">커뮤니티</a>
+    </div>
+
+    <div class="content">
+    <a href="/community/<%= community.title_url %>/setting/delete">delete</a>
+    <p><%= community.user.email %></p>
+        <% if ( user && user.id && community.userId == user.id) { %>
+            <button onclick="deleteCommunity(<%= community.title_url %>)">Delete</button>
+            <button onclick="appointManager()">Change Manager</button>
+        <% } %>
+        <%= %>
+    </div>
+
+    <script>
+        function deleteCommunity(str) {
+            if(confirm('Do you want to delete this community?')) {
+                var xhr = new XMLHttpRequest();
+                xhr.onload = function() {
+                    if(xhr.status === 200) {
+                        var result = JSON.parse(xhr.responseText).result;
+                        alert(result);
+                        location.href = "/";
+                    } else {
+                        console.error(xhr.responseText);
+                    }
+                };
+                xhr.open('POST','/community/'+ str + '/setting/delete');
+                xhr.send();
+            } else {
+                alert('You should click Yes if you want to delete this community');
+            }
+        }
+
+        function appointManager(str) {
+            var email = prompt('Please enter a email which you want to appoint');
+            while(!email) {
+                alert('Email can not be empty');
+                email = prompt('Please enter a email which you want to appoint');
+            }
+
+            if(confirm('Are you sure to appint to new user?')) {
+                var xhr = new XMLHttpRequest();
+                xhr.onload = function() {
+                    if(xhr.status === 200) {
+                        var result = JSON.parse(xhr.responseText).result;
+                        alert(result);
+                        location.reload();
+                    } else {
+                        console.error(xhr.responseText);
+                    }
+                }
+                xhr.open('PUT','/community/'+ str + '/setting');
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.send(JSON.stringify({ email: email }));
+            } else {
+                alert('You should press YES');
+            }
+        }
+    </script>
+    </body>
+</html>

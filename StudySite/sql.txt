@@ -1,0 +1,4 @@
+INSERT INTO codes (name, createdAt, updatedAt) VALUES('nodejs', now(), now() );
+INSERT INTO codes (name, createdAt, updatedAt) VALUES('javascript', now(), now() );
+INSERT INTO codes (name, createdAt, updatedAt) VALUES('python', now(), now() );
+INSERT INTO codes (name, createdAt, updatedAt) VALUES('django', now(), now() );

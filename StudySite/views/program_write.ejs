@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <% include ./layout %>
+    <head>
+    <body>
+
+    <% include ./sidevar %>
+
+    <div class="content">
+        <form method="POST" enctype="multipart/form-data">
+            Title <input type="text" name="title"><br>
+            introduction <textarea name="introduction">Enter text here</textarea><br>
+            url_key <input type="text" name="url_key"><br>
+            cover <input type="file" id="img" name="img"><br>
+            code
+            <select name="code" multiple>
+                <% codes.forEach(code => { %>
+                    <option value="<%= code.id %>"><%= code.name %></option>
+                <% }); %>
+            </select>
+            <button type="submit">submit</button>
+            <button type="reset">reset</button>
+        </form>
+    </div>
+    </body>
+</html>

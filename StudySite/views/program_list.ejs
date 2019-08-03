@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <% include ./layout %>
+    <script>
+
+    </script>
+    <head>
+    <body>
+
+    <% include ./sidevar %>
+
+        <div class="column side">
+            <form class="programSideForm" method="GET">
+                <fieldset>
+                    <% codes.forEach(code => { %>
+                        <input type="radio" name="code" value="<%= code.id %>"> <%= code.name %><br>
+                    <% }); %>
+                    <button type="submit">submit</button>
+                    <button type="reset">reset</button>
+                </fieldset>
+            </form>
+        </div>
+        <div class="column sideTwo">
+        <div class="programList row">
+            <% if (programs) { %>
+                <a href="?order=createdAt">생성순</a>
+                <a href="?order=title_asc">역이름순</a>
+                <a href="?order=title_DESC">이름순</a> <br>
+                <a href="/program/write">Program</a> <br>
+                <% programs.forEach(program => { %>
+                    <div class="programList column">
+                        <div class="programList content">
+                            <% if(program.cover) { %>
+                                <img src="/uploads/<%= program.cover %>" alt="<%= program.title %>sumnail">
+                            <% } %>
+                            <h4><a href="<%= program.url_key %>"><%= program.title %></a></h4><br>
+                            <p><%= program.author.nickname %></p>
+                        </div>
+                    </div>
+                <% }); %>
+            <% } %>
+            <%= %>
+        </div>
+        </div>
+    </body>
+</html>

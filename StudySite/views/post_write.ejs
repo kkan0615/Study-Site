@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <% include ./layout %>
+    <head>
+    <body>
+
+    <% include ./sidevar %>
+
+    <div class="content">
+        <form class="post_form" id="post_form" enctype="multipart/form-data" method="POST">
+            Title <input type="text" name="title"><br>
+            Content<textarea name="content">Enter text here</textarea><br>
+            <input type="file" name="url" accept="image/*" multiple><br>
+            <button type="submit">submit</button>
+            <button type="reset">reset</button>
+        </form>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+{
+  "name": "studysite",
+  "version": "0.0.1",
+  "description": "Project - Study Helper Community",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app"
+  },
+  "author": "Youngjin Kwak Requiem",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.4",
+    "dotenv": "^8.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.17.1",
+    "express-session": "^1.16.1",
+    "flash": "^1.1.0",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.2",
+    "mysql2": "^1.6.5",
+    "passport": "^0.4.0",
+    "passport-google-oauth": "^2.0.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-kakao": "0.0.5",
+    "passport-local": "^1.0.0",
+    "sequelize": "^5.8.7",
+    "socket.io": "^2.2.0",
+    "ws": "^7.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}

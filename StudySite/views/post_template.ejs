@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <% include ./layout %>
+    <head>
+    <body>
+
+    <% include ./sidevar %>
+    <div class="content">
+        <div class="post">
+            <p><%= community.user.nickname %></p>
+            <p><%= community.title %></p>
+            <p>Title: <%= post.title %></p>
+            <% if(post.img) { %>
+                <img src="<%= post.img %>" alt="sumnail">
+            <% } %>
+            <%= %>
+            <p>Content: <%= post.content %></p>
+            <p>Author: <%= post.author.nickname %></p>
+            <p><%= post.id %></p>
+            <% if(user && user.id) { %>
+                <% if( ( user.id && user ) || user.id == post.author.id || user.id == community.user.id ) { %>
+                    <button type="delete" onclick="deletePost(<%= post.id %>)">삭제하기</button>
+                <% } %>
+            <% } %>
+
+            <%= %>
+        </div>
+        <div class="comment">
+            <form id="comment_form" method="POST" action="/comment/<%= post.id %>">
+                <textarea name="content" form="comment_form">Enter text here</textarea><br>
+                <button type="submit">submit</button>
+                <button type="reset">reset</button>
+            </form>
+            <% if(comments) { %>
+                <table class="comment_list">
+                    <thead>
+                        <tr>
+                            <th>nickname</th>
+                            <th>content</th>
+                            <th>수정</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% comments.forEach(comment => { %>
+                            <td><%= comment.user.nickname%></td>
+                            <td><%= comment.conetent %></td>
+                            <% if(user && user.id) { %>
+                                <% if(comment.userId == user.id || community.user.id == user.id) { %>
+                                    <td><button id="edit" onclick="#">수정하기</button></td>
+                                    <td><button id="delete" onclick="deleteComment(<%= comment.id %>)">삭제하기</button></td>
+                                <% } %>
+                            <% } %>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+        <% } %>
+        <%= %>
+    </div>
+    <script>
+        function deletePost(id, title_url) {
+            var xhr = new XMLHttpRequest();
+            xhr.onload = function() {
+                if(xhr.status === 200) {
+                    var result = JSON.parse(xhr.responseText).result;
+                    alert(result);
+                    location.href = "/community_list";
+                } else {
+                    console.error(xhr.responseText);
+                }
+            };
+            xhr.open('delete','/post/'+id);
+            xhr.send();
+        }
+
+        function deleteComment(id) {
+            var xhr = new XMLHttpRequest();
+            xhr.onload = function() {
+                if(xhr.status === 200) {
+                    var result = JSON.parse(xhr.responseText).message;
+                    alert(result);
+                    location.reload();
+                } else {
+                    alert('Error happen!');
+                    console.error(xhr.responseText);
+                }
+            };
+            xhr.open('delete','/comment/'+id);
+            xhr.send();
+        }
+    </script>
+    </body>
+</html>

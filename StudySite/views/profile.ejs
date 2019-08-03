@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <% include ./layout %>
+    <head>
+    <body>
+        <% include ./sidevar %>
+        <div class="sidevar">
+            <a href="">닉네임재설정</a>
+            <a href="">내가쓴글</a>
+            <a href="">커뮤니티니</a>
+            <a href="">아이디삭제</a>
+        </div>
+        <div class="content">
+            <% if(user.posts) { %>
+                <table class="table_list">
+                    <thead>
+                    <tr>
+                        <th scope="cols">Title</td>
+                        <th scope="cols">CratedAt</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% user.posts.forEach(post => { %>
+                        <tr>
+                            <th scope="row"><a href="/post/<%= post.id %>"><%= post.title %></a></td>
+                            <td><%= post.createdAt %></td>
+                        </tr>
+                    <% });%>
+                    </tbody>
+                </table>
+            <% } %>
+            <%= %>
+            <% if(user.communities) { %>
+                <table class="table_list">
+                    <thead>
+                    <tr>
+                        <th scope="cols">title</th>
+                        <th scope="cols">createdAt</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% user.communities.forEach(community => { %>
+                        <tr>
+                            <th scope="row"><a href="/community/<%= community.title_url %>"><%= community.title %></a></th>
+                            <td><%= community.createdAt %></td>
+                        </tr>
+                    <% });%>
+                    </tbody>
+                </table>
+            <% } %>
+            <%= %>
+            <% if(user.programs) { %>
+                <table class="table_list">
+                    <thead>
+                    <tr>
+                        <th scope="cols">title</th>
+                        <th scope="cols">createdAt</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% user.programs.forEach(program => { %>
+                        <tr>
+                            <th scope="row"><a href="/program/<%= program.url_key %>"><%= program.title %></a></th>
+                            <td><%= program.createdAt %></td>
+                        </tr>
+                    <% });%>
+                    </tbody>
+                </table>
+            <% } %>
+            <%= %>
+    </body>
+</html>

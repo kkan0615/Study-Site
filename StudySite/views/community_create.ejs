@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <% include ./layout %>
+    <script>
+
+    </script>
+    <head>
+    <body>
+    <% include ./sidevar %>
+
+    <div class="content">
+        <% if ( createError.length > 0 ) { %>
+            <strong>Message: <%= createError %></strong>
+        <% } %>
+        <%= %>
+        <form method="POST" action="/community/community_create" enctype="multipart/form-data">
+            Title <input type="text" name="title" value="title"><br>
+            Title_url <input type="text" name="title_url" value="title"><br>
+            images <input type="file" id="img" name="img" multiple><br>
+            <input type="color" name="color" value="#ff0000">
+            <button type="submit">submit</button>
+        </form>
+    </div>
+    </body>
+</html>

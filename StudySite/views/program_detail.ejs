@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <% include ./layout %>
+    <head>
+    <body>
+
+    <% include ./sidevar %>
+    <div class="content">
+            <p><%= program.title %></p>
+            <p><%= program.author.nickname %></p>
+            <% if(program.chapters) { %>
+                <% program.chapters.forEach(chapter => { %>
+                <table>
+                    <th>
+                        <td><%= chapter.title %></td>
+                        <td><%= chapter.updatedAt %></td>
+                    <th>
+                        <td><% console.log(program) %><td>
+                        <% program.subjects.forEach(subject => { %>
+                        <tr>
+                            <td></td>
+                            <% if(subject.chapterId == chapter.id) { %>
+                                <td><a href="/program/<%= program.url_key %>/<%= subject.id %>"><%= subject.title %></a></td>
+                            <% } %>
+                        <% }); %>
+                        </tr>
+                    <tr>
+                        <td><a href="/program/<%= program.url_key %>/<%= chapter.id %>/subject/create">글쓰러가기</a></td>
+                    </tr>
+                </table>
+                <% }); %>
+            <% } %>
+            <%= %>
+            <a href="<%= program.url_key %>/chapter/create">chpater생성</a>
+    </div>
+    </body>
+</html>

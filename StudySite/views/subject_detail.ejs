@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <% include ./layout %>
+    <head>
+    <body>
+
+    <% include ./sidevar %>
+    <div class="content">
+        <% console.log(program); %>
+        <p>Prgram title: <%= program.title %></p>
+        <p>Program Author: <%= program.author.nickname %></p>
+        <p>Program subjects title: <%= subejct.title %></p>
+        <p>Program subejcts content: <%= subejct.content %></p>
+
+        <a href="#">글수정</a>
+    </div>
+    </body>
+</html>
