@@ -17,8 +17,9 @@ Individual Project - Study Community Site for Computer Science People
 3. OAuth의 이해
 
 ## Fucntion
-1. desgin simple Shopping (Basket, List watched stores)
-2. With the Kakao Map, get information of stores near location.
+1. Learn Javascript Pipe
+2. Use a Passport to login,
+3. Learn logic of OAuth
 
 # API
 1. Kakao Login http://apis.map.kakao.com/
