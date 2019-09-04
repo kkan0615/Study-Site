@@ -17,9 +17,9 @@ Individual Project - Study Community Site for Computer Science People
 3. OAuth의 이해
 
 ## Fucntion
-1. Learn Javascript Pipe
-2. Use a Passport to login,
-3. Learn logic of OAuth
+1. Javascript Pipe to play videos
+2. Passport to login
+3. logic of OAuth
 
 # API
 1. Kakao Login http://apis.map.kakao.com/
