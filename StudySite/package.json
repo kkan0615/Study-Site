@@ -27,7 +27,7 @@
     "passport-google-oauth20": "^2.0.0",
     "passport-kakao": "0.0.5",
     "passport-local": "^1.0.0",
-    "sequelize": "^5.8.7",
+    "sequelize": "^5.15.1",
     "socket.io": "^2.2.0",
     "ws": "^7.0.1"
   },
