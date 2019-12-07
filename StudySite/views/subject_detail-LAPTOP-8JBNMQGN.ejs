@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <% include ./layout %>
+    <head>
+    <body>
+
+    <% include ./sidevar %>
+    <div class="content">
+        <% console.log(program); %>
+        <p>Prgram title: <%= program.title %></p>
+        <p>Program Author: <%= program.author.nickname %></p>
+        <p>Program subjects title: <%= subject.title %></p>
+        <p>Program subejcts content: <%= subject.content %></p>
+        <% if(subject.video) { %>
+        <video controls class="subject-video">
+            <source src="http://127.0.0.1:8001/stream/video/<%= subject.id %>" type="video/mp4">
+        </video>
+        <% } %>
+        <a href="#">글수정</a>
+    </div>
+    <style>
+        .subject-video {
+            width: 100%;
+            height: 700px;
+        }
+    </style>
+    </body>
+</html>

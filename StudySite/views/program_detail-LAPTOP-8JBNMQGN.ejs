@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <% include ./layout %>
+    <head>
+    <body>
+
+    <% include ./sidevar %>
+    <div class="content">
+        <% console.log(program.chapters) %>
+            <p><%= program.title %></p>
+            <p><%= program.author.nickname %></p>
+            <% if(program.chapters) { %>
+                <% for(let i = 0; i < program.chapters.length; i++) { %>
+                    <% console.log(program.chapters) %>
+                    <div class="chapter-list">
+                        <p><%= program.chapters[i].title %></p>
+                        <a href="/program/<%= program.url_key %>/<%= program.chapters[i].id %>/subject/create">subject 추가</a>
+                        <% program.chapters[i].subjects.forEach(subject => { %>
+                            <div class="subject-list" >
+                                <a href="/program/<%= program.url_key %>/subject/<%= subject.id %>"><%= subject.title %></a>
+                            </div>
+                        <% }); %>
+                    </div>
+                <% } %>
+            <% } %>
+            <%= %>
+            <a href="<%= program.url_key %>/chapter/create">chpater생성</a>
+    </div>
+    <style>
+        .chapter-list {
+            text-align: center;
+            border: 1px solid black;
+            width: 60%;
+        }
+        .subject-list {
+            border-bottom: 1px dotted black;
+        }
+    </style>
+    </body>
+</html>
