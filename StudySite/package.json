@@ -28,7 +28,7 @@
     "passport-kakao": "0.0.5",
     "passport-local": "^1.0.0",
     "sequelize": "^5.8.7",
-    "socket.io": "^2.2.0",
+    "socket.io": "^2.4.0",
     "ws": "^7.0.1"
   },
   "devDependencies": {
